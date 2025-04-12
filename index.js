@@ -7,10 +7,32 @@ const port = 3000
 // def home():
 // return 'hello world', method=['GET']
 
+const person = {
+    name: "Felicis",
+    age: 27
+}
+
+
+const posts = [{
+    title: 'Felicis',
+    body: '',
+    is_published: false
+}, {
+    title: 'Jesso',
+    body: '',
+    is_published: true
+}]
 // app.[http-verb]([path], [callback])
 
+app.get('/posts', (req,res) => {
+    res.send(posts)
+})
+
 app.get('/', (req, res) => {
-  res.send('Hello Felicis was here.!')
+
+    // Serialize person and send to the client
+    res.send(person)
+  //res.send('<h1>Hello Felicis was here.!</h1>')
 })
 
 // start the dev server on the given port
